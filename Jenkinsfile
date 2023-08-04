@@ -9,11 +9,9 @@ pipeline {
         }
        stage('build && SonarQube analysis') {
             steps {
-                withSonarQubeEnv('http://localhost:9000/') {
-                    // Optionally use a Maven environment you've configured already
-                    withMaven(maven:'Maven 3.5') {
-                        sh 'mvn clean package sonar:sonar'
-                    }
+              withSonarQubeEnv(credentialsId: 'ae331794-4ae4-49bd-b717-4f50b45b6aa3') {
+                // some block
+                 }
                 }
             }
           stage("Quality Gate") {
