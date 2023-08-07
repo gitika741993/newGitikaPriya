@@ -10,7 +10,9 @@ pipeline {
        stage('build && SonarQube analysis') {
             steps {
               withSonarQubeEnv(credentialsId: 'ae331794-4ae4-49bd-b717-4f50b45b6aa3', installationName: 'Sonar Server') {
-    // some block
+               sh" ${SCANNER_HOME**}**}/bin/sonar-scanner \
+              -Dsonar.projectKey=simple_webapp \
+               -Dsonar.sources=. "
                   }
                 }
             }
